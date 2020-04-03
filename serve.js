@@ -102,3 +102,9 @@ app.delete('/api/:id', (req, res) => {
         .then(a => res.send(a))
 
 });
+
+
+app.get('/', (req, res) => {
+
+    res.send("OK it's working")
+});
