@@ -9,8 +9,7 @@ const app = require('express')(),
 const CONNECTION_URL = "mongodb://root:root@cluster0-shard-00-00-6pvot.mongodb.net:27017,cluster0-shard-00-01-6pvot.mongodb.net:27017,cluster0-shard-00-02-6pvot.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
     DATABASE_NAME = "pedepastel";
 
-let port = process.env.port || 3000,
-    database, collection;
+let database, collection;
 
 // adicionar middleware
 app.use(multipart())
@@ -24,7 +23,7 @@ app.use((req, res, next) => {
     next()
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 8080, () => {
     console.log(`O servidor foi iniciado na porta ${port}`);
     MongoClient.connect(CONNECTION_URL, { useUnifiedTopology: true }, (error, client) => {
         if (error) {
