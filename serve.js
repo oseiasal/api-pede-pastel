@@ -1,5 +1,5 @@
 //  Importar Módulo
-const app = require('express')(),
+const express = require('express'),
     MongoClient = require('mongodb').MongoClient,
     objectId = require('mongodb').ObjectID,
     BodyParser = require("body-parser"),
@@ -9,6 +9,8 @@ const app = require('express')(),
 const CONNECTION_URL = "mongodb://root:root@cluster0-shard-00-00-6pvot.mongodb.net:27017,cluster0-shard-00-01-6pvot.mongodb.net:27017,cluster0-shard-00-02-6pvot.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
     DATABASE_NAME = "pedepastel";
 
+
+const app = express();
 let database, collection;
 
 // adicionar middleware
