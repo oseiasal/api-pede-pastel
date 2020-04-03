@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 });
 
 app.listen(process.env.PORT || 8080, () => {
-    console.log(`O servidor foi iniciado na porta ${port}`);
+    console.log(`O servidor foi iniciado na porta `);
     MongoClient.connect(CONNECTION_URL, { useUnifiedTopology: true }, (error, client) => {
         if (error) {
             throw error
