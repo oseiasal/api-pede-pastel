@@ -4,7 +4,7 @@
   "description": "Api para o projeto",
   "main": "serve.js",
   "scripts": {
-    "start": "nodemon serve.js"
+    "start": "node index.js"
   },
   "author": "Oseias Alves do Nascimento",
   "license": "ISC",

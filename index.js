@@ -12,7 +12,7 @@ const CONNECTION_URL = "mongodb://root:root@cluster0-shard-00-00-6pvot.mongodb.n
 
 const app = express();
 let database, collection;
-
+const PORT = process.env.PORT || 3000;
 // adicionar middleware
 app.use(multipart())
 app.use(BodyParser.json());
@@ -25,7 +25,7 @@ app.use((req, res, next) => {
     next()
 });
 
-app.listen(process.env.PORT || 8080, () => {
+app.listen(PORT, () => {
     console.log(`O servidor foi iniciado na porta `);
     MongoClient.connect(CONNECTION_URL, { useUnifiedTopology: true }, (error, client) => {
         if (error) {
