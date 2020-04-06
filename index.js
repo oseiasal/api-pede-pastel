@@ -52,31 +52,31 @@ app.get('/api', (req, res) => {
 
 // inserir novo
 app.post('/api', (req, res) => {
-    let data = new Date();
-    time_stamp = data.getTime();
+    // let data = new Date();
+    // time_stamp = data.getTime();
 
 
-    let url_imagem = time_stamp + req.files.img.originalFilename,
-        origin = req.files.img.path,
-        destine = './uploads/' + url_imagem;
+    // let url_imagem = time_stamp + req.files.img.originalFilename,
+    //     origin = req.files.img.path,
+    //     destine = './uploads/' + url_imagem;
 
-    console.log(req.files.img.originalFilename)
+    // console.log(req.files.img.originalFilename)
 
-    fs.rename(origin, destine, (err) => {
-        if (err) {
-            throw err
-        }
-    })
+    // fs.rename(origin, destine, (err) => {
+    //     if (err) {
+    //         throw err
+    //     }
+    // })
 
-    let dados = {
-        title: req.body.title,
-        description: req.body.description,
-        img: url_imagem,
-        preco: req.body.preco,
-        qtd: req.body.qtd
-    }
+    // let dados = {
+    //     title: req.body.title,
+    //     description: req.body.description,
+    //     img: url_imagem,
+    //     preco: req.body.preco,
+    //     qtd: req.body.qtd
+    // }
 
-    collection.insertOne(dados)
+    collection.insertOne(req.body)
         .then(resp => {
             res.send(resp)
 
